@@ -38,6 +38,6 @@ $ source env/bin/activate
 
 * High knees
 * Jumping Jacks: https://medium.com/@ammarrizwan617/a-jumping-jacks-exercise-trainer-9648eb1195cf
-* Squats
+* Squats: https://github.com/Pradnya1208/Squats-angle-detection-using-OpenCV-and-mediapipe_v1
 * Lunges
 * Pushups
