@@ -28,7 +28,7 @@ def rescale_frame(frame, percent=50):
 # Youtube video
 angle_min = []
 angle_min_hip = []
-cap = cv2.VideoCapture("squats_test_v2.mp4")
+cap = cv2.VideoCapture(0)
 
 
 
@@ -40,11 +40,11 @@ min_ang_hip = 0
 max_ang_hip = 0
 stage = None
 
-width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) + 0.5)
-height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) + 0.5)
-size = (640, 480)
-fourcc = cv2.VideoWriter_fourcc(*'MP4V')
-out = cv2.VideoWriter('output_video_.mp4', fourcc, 24, size)
+# width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH) + 0.5)
+# height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT) + 0.5)
+# size = (640, 480)
+# fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+# out = cv2.VideoWriter('output_video_.mp4', fourcc, 24, size)
 
 with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
     while cap.isOpened():
@@ -69,9 +69,9 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
             
             # Get coordinates
             shoulder = [landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_SHOULDER.value].y]
-            """elbow = [landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].x,landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y]
+            elbow = [landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].x,landmarks[mp_pose.PoseLandmark.LEFT_ELBOW.value].y]
             wrist = [landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].x,landmarks[mp_pose.PoseLandmark.LEFT_WRIST.value].y]
-            """
+            
             
             # Get coordinates
             hip = [landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x,landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y]
@@ -169,15 +169,11 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
                                 mp_drawing.DrawingSpec(color=(203,17,17), thickness=2, circle_radius=2) 
                                  )               
         
-        out.write(image)
+        # out.write(image)
         cv2.imshow('Mediapipe Feed', image)
 
         if cv2.waitKey(10) & 0xFF == ord('q'):
-            cap.release()
-            out.release()
-            cv2.destroyAllWindows()
-            #break
+            break
 
     cap.release()
-    out.release()
     cv2.destroyAllWindows()

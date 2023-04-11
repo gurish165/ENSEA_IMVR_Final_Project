@@ -21,7 +21,7 @@ def calculate_angle(a,b,c):
     return angle
 
 # Video Feed
-cap= cv2.VideoCapture("Video 3.mkv")
+cap= cv2.VideoCapture(0)
 
 # Curl counter variables
 counter = 0
