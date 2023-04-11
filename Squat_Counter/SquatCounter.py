@@ -104,15 +104,15 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
                                 )"""
                        
                 
-            cv2.putText(image, str(angle_knee), 
-                           tuple(np.multiply(knee, [1500, 800]).astype(int)), 
-                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2, cv2.LINE_AA
-                                )
+            # cv2.putText(image, str(angle_knee), 
+            #                tuple(np.multiply(knee, [1500, 800]).astype(int)), 
+            #                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 2, cv2.LINE_AA
+            #                     )
             
-            cv2.putText(image, str(angle_hip), 
-                           tuple(np.multiply(hip, [1500, 800]).astype(int)), 
-                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
-                                )
+            # cv2.putText(image, str(angle_hip), 
+            #                tuple(np.multiply(hip, [1500, 800]).astype(int)), 
+            #                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2, cv2.LINE_AA
+            #                     )
             
             # Curl counter logic
             if angle_knee > 169:
@@ -154,14 +154,14 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
         #Knee angle:
         """cv2.putText(image, 'Angle', (65,12), 
                     cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,255,255), 1, cv2.LINE_AA)"""
-        cv2.putText(image, "Knee-joint angle : " + str(min_ang), 
-                    (30,100), 
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2, cv2.LINE_AA)
+        # cv2.putText(image, "Knee-joint angle : " + str(min_ang), 
+        #             (30,100), 
+        #             cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2, cv2.LINE_AA)
         
         #Hip angle:
-        cv2.putText(image, "Hip-joint angle : " + str(min_ang_hip), 
-                    (30,140), 
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2, cv2.LINE_AA)
+        # cv2.putText(image, "Hip-joint angle : " + str(min_ang_hip), 
+        #             (30,140), 
+        #             cv2.FONT_HERSHEY_SIMPLEX, 1, (255,255,255), 2, cv2.LINE_AA)
 
         # Render detections
         mp_drawing.draw_landmarks(image, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
