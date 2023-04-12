@@ -78,7 +78,7 @@ while cap.isOpened():
         
         # Feedback 
         cv2.rectangle(img, (500, 0), (640, 40), (255, 255, 255), cv2.FILLED)
-        cv2.putText(img, feedback, (500, 40 ), cv2.FONT_HERSHEY_PLAIN, 2,
+        cv2.putText(img, feedback, (500, 40), cv2.FONT_HERSHEY_PLAIN, 2,
                     (0, 255, 0), 2)
 
         
